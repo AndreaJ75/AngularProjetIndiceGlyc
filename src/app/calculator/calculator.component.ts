@@ -35,6 +35,7 @@ export class CalculatorComponent implements OnInit {
 
   ngOnInit() {
     this.alimentCalculList = [];
+    this.totalGlycCharge = 0;
   }
 
   onSubmit(formCalculator) {
@@ -58,21 +59,36 @@ export class CalculatorComponent implements OnInit {
       carbs : this.alimentToCalculate.carbs,
       glycCharge : this.glycemicCharge,
     }
-    this.totalGlycCharge = this.totalGlycCharge + this.glycemicCharge;
 
     console.log(this.alimentCalculated);
 
     this.alimentCalculList.push(this.alimentCalculated);
     console.log("alimentlist " + this.alimentCalculated);
-    
-    return this.alimentCalculList;
+
+    this.totalGlycCharge = 0;
+
+    for (let index = 0; index < this.alimentCalculList.length; index++) {
+      this.totalGlycCharge = this.totalGlycCharge + this.glycemicCharge;
+      console.log("charge GYLC TOTAL : " + this.totalGlycCharge);
+    }
+
   }
 
   deleteAlimentCalcul(aliment:Calcultor) {
     const index: number = this.alimentCalculList.indexOf(aliment);
+ 
+    this.totalGlycCharge =0;
+    for (let index = 0; index < this.alimentCalculList.length; index++) {
+      this.totalGlycCharge = this.totalGlycCharge + this.glycemicCharge;
+      console.log("charge GYLC TOTAL : " + this.totalGlycCharge);
+    }
+
     if (index !== -1) {
         this.alimentCalculList.splice(index, 1);
     }        
   }
+
+
+
 
 }
