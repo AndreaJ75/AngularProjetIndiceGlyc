@@ -1,0 +1,24 @@
+<app-alimentcart> </app-alimentcart>
+<section class = alimentable> 
+
+  <table> 
+    <tr>
+      <th> Aliment Name </th>
+      <th> Aliment ig </th>
+      <th> Aliment carbs </th>
+      <th> Delete </th>
+    </tr>   
+    <tr *ngFor="let aliment of alimentAll">
+        <td> {{aliment.name}} </td>
+        <td> {{aliment.ig}} </td>
+        <td> {{aliment.carbs}} </td>
+        <td> <button (click)="deleteAliment(aliment)"> delete </button></td>
+    </tr> 
+  </table>
+</section>
+
+   <!-- <h2>
+      <a [routerLink]="['details', princessId]">{{princess.name}}</a>
+    </h2>
+  </div> -->
+

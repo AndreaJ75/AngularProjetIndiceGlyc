@@ -1,0 +1,42 @@
+
+<form [formGroup]="calculatorForm" (ngSubmit)="onSubmit(calculatorForm.value)">
+
+    <div>
+        <label for="name-select">
+            Select an aliment :
+        </label>
+        <select name="name" id="name-select" formControleName="name">
+            <option *ngFor="let aliment of alimentsAll; let index IdAliment" [value] = "aliment.name">
+                {{ aliment.name }}
+               </option>
+        </select>
+    </div>
+
+    <div>
+        <label for="portion">
+            Portion
+        </label>
+        <input id="portion" type="number" formControlName="portion">
+    </div>
+    <button class="button" type="submit"> Calculate </button>
+</form>
+
+<section class=alimencaltable *ngIf="alimentCalculList">
+
+    <table>
+        <tr>
+            <th> Aliment Name </th>
+            <th> Aliment ig </th>
+            <th> Aliment carbs </th>
+            <th> Aliment glycemic charge </th>
+            <th> Delete </th>
+        </tr>
+        <tr *ngFor="let aliment of alimentCalculList">
+            <td> {{aliment.name}} </td>
+            <td> {{aliment.ig}} </td>
+            <td> {{aliment.carbs}} </td>
+            <td> {{aliment.portion }} </td>
+            <td> <button (click)="deleteAlimentCalcul(aliment)"> delete </button></td>
+        </tr>
+    </table>
+</section>
