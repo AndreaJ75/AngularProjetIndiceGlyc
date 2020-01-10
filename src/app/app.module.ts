@@ -9,6 +9,7 @@ import { CalculatorComponent } from './calculator/calculator.component';
 import { RouterModule } from '@angular/router';
 import { AlimentcartComponent } from './alimentcart/alimentcart.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, 
+    AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
 //      { path: '', component: AlimentcartComponent },

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { AlimentListService } from '../aliment-list.service';
 import { Calcultor } from '../calcultor';
 import { Aliment } from '../aliment';
@@ -11,35 +11,40 @@ import { Aliment } from '../aliment';
 })
 export class CalculatorComponent implements OnInit {
 
-  calculatorForm;
   alimentsAll : Aliment[] = this.alimentListService.alimentList;
 
   alimentToCalculate : Aliment ;
   alimentCalculated : Calcultor;
-  glycemicCharge;
-  alimentCalculList : Calcultor[];
-  formCalculator : Calcultor[];
-  formBuildData : FormBuilder;
+  glycemicCharge : number = 0;
+  alimentCalculList : Calcultor[] = [];
+  totalGlycCharge = 0;
+ 
+
+
+  calculatorForm : FormGroup;
+  formCalculator : Calcultor;
+
 
   constructor(private formBuilder: FormBuilder,
     private alimentListService : AlimentListService) {
       this.calculatorForm = this.formBuilder.group({
-        name: '',
-        portion : ''
+        aliment: null,
+        portion : 0
       });
      }
 
   ngOnInit() {
-    
+    this.alimentCalculList = [];
   }
 
-  
-  onSubmit(formCalculator[IdAliment]) {
+  onSubmit(formCalculator) {
+
+    console.log(formCalculator);
+    console.log(formCalculator.portion);
 
     // Lecture list des aliments de alimentCartService + sélection de l'aliment considéré en prenant l'index de celui-ci dans la liste
-    this.alimentToCalculate = formCalculator.name[IdAliment];
-    console.log("FormCalculator " + formCalculator.name);
-    console.log("FormCalculator " + formCalculator.portion);
+    this.alimentToCalculate = formCalculator.aliment;
+
     //this.alimentToCalculate = this.alimentListService.getAlimentToCalculate(aliment);
 
     // Calcul de charge glycémique de l'aliment sélectionné
@@ -51,10 +56,15 @@ export class CalculatorComponent implements OnInit {
       name : this.alimentToCalculate.name,
       ig : this.alimentToCalculate.ig,
       carbs : this.alimentToCalculate.carbs,
-      portion : this.glycemicCharge
+      glycCharge : this.glycemicCharge,
     }
+    this.totalGlycCharge = this.totalGlycCharge + this.glycemicCharge;
+
+    console.log(this.alimentCalculated);
+
     this.alimentCalculList.push(this.alimentCalculated);
     console.log("alimentlist " + this.alimentCalculated);
+    
     return this.alimentCalculList;
   }
 

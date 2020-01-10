@@ -5,8 +5,8 @@
         <label for="name-select">
             Select an aliment :
         </label>
-        <select name="name" id="name-select" formControleName="name">
-            <option *ngFor="let aliment of alimentsAll; let index IdAliment" [value] = "aliment.name">
+        <select id="name-select" formControlName="aliment">
+            <option [ngValue]="aliment" *ngFor="let aliment of alimentsAll">
                 {{ aliment.name }}
                </option>
         </select>
@@ -21,7 +21,10 @@
     <button class="button" type="submit"> Calculate </button>
 </form>
 
-<section class=alimencaltable *ngIf="alimentCalculList">
+<section class=alimencaltable *ngIf="alimentCalculList !==[]">
+
+    <h1> Charge Totale : {{ alimentCalculList.glycCharge }} </h1>
+    <h2> Liste des portions ajoutées </h2>
 
     <table>
         <tr>
@@ -35,7 +38,7 @@
             <td> {{aliment.name}} </td>
             <td> {{aliment.ig}} </td>
             <td> {{aliment.carbs}} </td>
-            <td> {{aliment.portion }} </td>
+            <td> {{aliment.glycCharge }} </td>
             <td> <button (click)="deleteAlimentCalcul(aliment)"> delete </button></td>
         </tr>
     </table>
