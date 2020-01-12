@@ -21,8 +21,8 @@
     <button class="button" type="submit"> Calculate </button>
 </form>
 
-<section class=alimencaltable *ngIf="alimentCalculList !==[]">
-
+<!-- <section class=alimencaltable *ngIf="alimentCalculList !==[]"> -->
+<section class=alimencaltable *ngIf="showArray == true">
     <h1> Charge Totale : {{ totalGlycCharge }} </h1>
     <h2> Liste des portions ajoutées </h2>
 
