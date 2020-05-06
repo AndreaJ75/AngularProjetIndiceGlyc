@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+body{
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+h1{
+  display: block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+.alimentable {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+  /*width: 75%;*/
+  /*background-color: white;*/
+  /*margin-left: 15%;*/
+}
+.alimenCart{
+  width: 100%;
+  display: inline-block;
+  margin-right: 10%;
+  /*margin-left: 10%;*/
+  margin-bottom: 3%;
+  background-color: lightseagreen;
+  text-align: right;
+}
+.cartCols{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.label{
+  width: 21%;
+  margin: 0.5%;
+}
+.button{
+  width: 15%;
+  height: 10%;
+  border-radius: 8%;
+  margin-top: 1.5%;
+  margin-bottom: 1.5%;
+  display: block;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table, th, td{
+  width : 55%;
+  border: solid;
+  border-collapse: collapse;
+  /*margin-left: 10%;*/
+  background-color: lightgrey;
+}

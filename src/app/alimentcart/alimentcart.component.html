@@ -1,26 +1,27 @@
-<form [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
+<form class="alimenCart" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
 
-    <div>
-        <label for="name">
+      <div class="cartCols">
+        <label for="name" class="label">
           Aliment Name
         </label>
-        <input id="name" type="text" formControlName="name">
+        <input class="label" id="name" type="text" formControlName="name">
       </div>
-    
-      <div>
-        <label for="ig">
+
+      <div class="cartCols">
+        <label for="ig" class="label">
           ig
         </label>
-        <input id="ig" type="number" formControlName="ig">
-      </div>    
+        <input class="label" id="ig" type="number" formControlName="ig">
+      </div>
 
-      <div>
-        <label for="ig">
+      <div class="cartCols">
+        <label for="ig" class="label">
           Glucids proportion (g/100g)
         </label>
-        <input id="glucidProportion" type="number" formControlName="carbs">
-      </div>    
+        <input class="label" id="glucidProportion" type="number" formControlName="carbs">
+      </div>
 
      <!-- <button (click)="addToCart(alimentToAdd)"> Add </button> -->
     <button class="button" type="submit"> Add </button>
 </form>
+

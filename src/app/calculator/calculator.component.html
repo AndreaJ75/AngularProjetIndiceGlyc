@@ -1,22 +1,22 @@
 
-<form [formGroup]="calculatorForm" (ngSubmit)="onSubmit(calculatorForm.value)">
+<form class="alimenCart" [formGroup]="calculatorForm" (ngSubmit)="onSubmit(calculatorForm.value)">
 
-    <div>
-        <label for="name-select">
+    <div class="cartCols">
+        <label for="name-select" class="label">
             Select an aliment :
         </label>
-        <select id="name-select" formControlName="aliment">
+        <select class="label" id="name-select" formControlName="aliment">
             <option [ngValue]="aliment" *ngFor="let aliment of alimentsAll">
                 {{ aliment.name }}
                </option>
         </select>
     </div>
 
-    <div>
-        <label for="portion">
+    <div class="cartCols">
+        <label for="portion" class="label">
             Portion
         </label>
-        <input id="portion" type="number" formControlName="portion">
+        <input class="label" id="portion" type="number" formControlName="portion">
     </div>
     <button class="button" type="submit"> Calculate </button>
 </form>
@@ -43,3 +43,4 @@
         </tr>
     </table>
 </section>
+
